@@ -1,0 +1,51 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+    </body>
+    <script>
+
+        function getComputerChoice() {
+            let choiceArray = ['Rock', 'Paper', 'Scissors'];
+            let outcome = choiceArray[Math.floor(Math.random() * choiceArray.length)];
+            console.log(outcome);
+        }
+
+        getComputerChoice();
+
+
+        function firstRound(playerSelection, computerSelection) {
+            let playerChoice = prompt("Rock, paper or scissors?");
+
+            if (playerChoice.toLowerCase() === "rock" && computerSelection === "rock") {
+                alert("It's a draw!"); 
+            } else if (playerChoice.toLowerCase() === "rock" && computerSelection === "scissors") {
+                alert("You win, congrats!");
+            } else if (playerChoice.toLowerCase() === "rock" && computerSelection === "paper") {
+                alert("You lose, paper beats rock!");
+            } else if (playerChoice.toLowerCase() === "paper" && computerSelection === "paper") {
+                alert("It's a draw!");
+            } else if (playerChoice.toLowerCase() === "paper" && computerSelection === "scissors") {
+                alert("You lose, scissors beats paper!");
+            } else if (playerChoice.toLowerCase() === "paper" && computerSelection === "rock") {
+                alert("You win, congrats!");
+            } else if (playerChoice.toLowerCase() === "scissors" && computerSelection === "scissors") {
+                alert("It's a draw!");
+            } else if (playerChoice.toLowerCase() === "scissors" && computerSelection === "paper") {
+                alert("You win, congrats!");
+            } else if (playerChoice.toLowerCase() === "scissors" && computerSelection === "rock") {
+                alert("You lose, rock beats scissors!");
+            };
+            
+        }
+
+        const computerSelection = getComputerChoice();
+
+        firstRound();
+
+       
+
+    </script>
+</html>
