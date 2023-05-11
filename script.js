@@ -1,4 +1,6 @@
-var choices = ['Rock', 'Paper', 'Scissors'];
+let playerName = prompt("What is your name?");
+
+let choices = ['Rock', 'Paper', 'Scissors'];
 
 function getComputerChoice() {
      return choices[Math.floor(Math.random() * choices.length)];  
@@ -16,7 +18,7 @@ function firstRound(playerSelection, computerSelection) {
     var playerSelection = prompt("Rock, paper or scissors?");
 
     console.log("Computer: ", computerSelection);
-    console.log("Player: ", playerSelection);
+    console.log(playerName + ":", playerSelection);
 
     if (playerSelection === computerSelection){
         console.log(tie);
