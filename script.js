@@ -1,6 +1,6 @@
 let playerName = prompt("What is your name?");
 
-let choices = ['Rock', 'Paper', 'Scissors'];
+let choices = ['rock', 'paper', 'scissors'];
 
 function getComputerChoice() {
      return choices[Math.floor(Math.random() * choices.length)];  
@@ -15,16 +15,16 @@ function firstRound(playerSelection, computerSelection) {
     getComputerChoice();
 
     var computerSelection = getComputerChoice();
-    var playerSelection = prompt("Rock, paper or scissors?"); 
+    var playerSelection = prompt("Rock, paper or scissors?").toLowerCase(); 
 
     console.log("Computer: ", computerSelection);
     console.log(playerName + ":", playerSelection);
 
     if (playerSelection === computerSelection){
         console.log(draw);
-    } else if (playerSelection === "Rock" && computerSelection === "Scissors" ||
-                playerSelection === "Paper" && computerSelection === "Rock" ||
-                playerSelection === "Scissors" && computerSelection === "Paper" ){
+    } else if (playerSelection === "rock" && computerSelection === "scissors" ||
+                playerSelection === "paper" && computerSelection === "rock" ||
+                playerSelection === "scissors" && computerSelection === "paper" ){
         console.log(win);
                 } else if (playerSelection === null || playerSelection === ""){
         console.log("Invalid input, try again");
