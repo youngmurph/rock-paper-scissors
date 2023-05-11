@@ -7,7 +7,7 @@ function getComputerChoice() {
 } 
 
 const win = "You won!";
-const tie = "You tied!";
+const draw = "You drew!";
 const loss = "You lose!";
 
 function firstRound(playerSelection, computerSelection) {
@@ -15,16 +15,16 @@ function firstRound(playerSelection, computerSelection) {
     getComputerChoice();
 
     var computerSelection = getComputerChoice();
-    var playerSelection = prompt("Rock, paper or scissors?");
+    var playerSelection = prompt("Rock, paper or scissors?"); 
 
     console.log("Computer: ", computerSelection);
     console.log(playerName + ":", playerSelection);
 
     if (playerSelection === computerSelection){
-        console.log(tie);
-    } else if (playerSelection === "Rock".toLowerCase() && computerSelection === "Scissors" ||
-                playerSelection === "Paper".toLowerCase() && computerSelection === "Rock" ||
-                playerSelection === "Scissors".toLowerCase() && computerSelection === "Paper"){
+        console.log(draw);
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors" ||
+                playerSelection === "Paper" && computerSelection === "Rock" ||
+                playerSelection === "Scissors" && computerSelection === "Paper" ){
         console.log(win);
                 } else if (playerSelection === null || playerSelection === ""){
         console.log("Invalid input, try again");
