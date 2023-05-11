@@ -23,8 +23,8 @@ function firstRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection){
         console.log(tie);
     } else if (playerSelection === "Rock".toLowerCase() && computerSelection === "Scissors" ||
-                playerSelection === "Scissors".toLowerCase() && computerSelection === "Paper" ||
-                playerSelection === "Paper".toLowerCase() && computerSelection === "Rock"){
+                playerSelection === "Paper".toLowerCase() && computerSelection === "Rock" ||
+                playerSelection === "Scissors".toLowerCase() && computerSelection === "Paper"){
         console.log(win);
                 } else if (playerSelection === null || playerSelection === ""){
         console.log("Invalid input, try again");
