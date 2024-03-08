@@ -1,15 +1,14 @@
 /* Choose a string from three possible choices. */
 /* Print the chosen string to the console. */
 
-let choice = Math.floor(Math.random() * 3);
-
-function getComputerChoice(choice) {
+function getComputerChoice() {
+    let choice = Math.floor(Math.random() * 3);
 
     if (choice === 1) {
         return "rock";
     } else if (choice === 2) {
         return "paper";
-    } else {
+    } else if (choice === 3 ) {
         return "scissors";
     }
 } 
@@ -21,7 +20,7 @@ let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
 let computerSelection = getComputerChoice();
 
 
-function firstRound (playerSelection, computerSelection) {
+function firstRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection === "scissors") {
         return "You win, congratulations!";
     } else if (playerSelection == "paper" && computerSelection === "rock") {
