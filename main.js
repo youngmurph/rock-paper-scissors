@@ -2,16 +2,11 @@
 /* Print the chosen string to the console. */
 
 function getComputerChoice() {
-    let choice = Math.floor(Math.random() * 3);
-
-    if (choice === 1) {
-        return "rock";
-    } else if (choice === 2) {
-        return "paper";
-    } else if (choice === 3 ) {
-        return "scissors";
-    }
+    let choice = Math.floor((Math.random() * 3) + 1);
+    return choice;
 } 
+
+/* getComputerChoice(); */
 
 /* Prompt user for their choice with no case sensitivity */
 /* Run getComputerChoice()*/
@@ -21,15 +16,21 @@ let computerSelection = getComputerChoice();
 
 
 function firstRound(playerSelection, computerSelection) {
-    if (playerSelection == "rock" && computerSelection === "scissors") {
-        return "You win, congratulations!";
-    } else if (playerSelection == "paper" && computerSelection === "rock") {
-        return "You win, congratulations!"; 
-    } else if (playerSelection == "scissors" && computerSelection === "paper") {
-        return "You win, congratulations!";
+    if (playerSelection === "rock" && computerSelection === 3) {
+        alert("You win, rock beats scissors!");
+    } else if (playerSelection = "paper" && computerSelection === 1) {
+        alert("You win, paper beats rock!"); 
+    } else if (playerSelection === "scissors" && computerSelection === 2) {
+        alert("You win, scissors beats paper!");
+    } else if (playerSelection === "rock" && computerSelection === 1) {
+        alert("It's a draw!");
+    } else if (playerSelection === "paper" && computerSelection === 2) {
+        alert("It's a draw!");
+    } else if (playerSelection === "scissors" && computerSelection === 3) {
+        alert("It's a draw!");
     } else {
-        return "You lose!";
+        alert("You lose!")
     }
 }
 
-console.log(firstRound());
+firstRound(playerSelection, computerSelection); 
