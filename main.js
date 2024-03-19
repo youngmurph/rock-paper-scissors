@@ -41,14 +41,27 @@ Add an event listener to each button that calls playRound(). */
         return computerChoice;
     }; 
 
+    let playerScore = 0;
+    let computerScore = 0;
+
     function playRound(player, computer) {
         computer = computerSelection();
-        let playerScore = 0;
-        let computerScore = 0;
         let round = 0;
+        let winner = document.getElementById('winner');
 
         function nextRound() {
+            if (playerScore == 5) {
+                let win = document.createTextNode(`Congratulations, you won!`);
+                winner.appendChild(win);
+            } else if (playerScore == 5 && computerScore == 5) {
+                let tie = document.createTextNode(` It's a tie!`);
+                winner.appendChild(tie);
+            } else if (computerScore == 5) {
+                let loss = document.createTextNode(`Computer wins, better luck next time!`);
+                winner.appendChild(loss);
+            } else {
             round+= 1;
+            }
         }
 
         if (player == 'rock' && computer == 'Scissors') {
@@ -58,14 +71,14 @@ Add an event listener to each button that calls playRound(). */
         } else if (player == 'scissors' && computer == 'Paper') {
             playerScore = playerScore+= 1;
         } else if (player == 'rock' && computer == 'Rock') {
-            playerScore = playerScore + 0;
-            computerScore = computerScore + 0;
+            playerScore+= 0;
+            computerScore+= 0;
         } else if (player == 'scissors' && computer == 'Scissors') {
-            playerScore = playerScore + 0;
-            computerScore = computerScore + 0;
+            playerScore+= 0;
+            computerScore+= 0;
         } else if (player == 'paper' && computer == 'Paper') {
-            playerScore = playerScore + 0;
-            computerScore = computerScore + 0;
+            playerScore+= 0;
+            computerScore+= 0;
         } else {
             computerScore = computerScore+= 1;
         }
@@ -73,15 +86,6 @@ Add an event listener to each button that calls playRound(). */
         document.getElementById('result').textContent = `The score is ${playerScore} - ${computerScore}.`;
 
         nextRound();
-    
-
-        if (playerScore == 5) {
-            document.createElement('p').textContent = `Congratulations, you won!`;
-        } else if (playerScore == 5 && computerScore == 5) {
-            document.createElement('p').textContent = ` It's a tie!`;
-        } else {
-            document.createElement('p').textContent = `You lose, better luck next time`;
-        }
     
     
     };
