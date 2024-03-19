@@ -43,52 +43,96 @@ Add an event listener to each button that calls playRound(). */
 
     let playerScore = 0;
     let computerScore = 0;
+    let round = 0;
 
     function playRound(player, computer) {
         computer = computerSelection();
-        let round = 0;
-        let winner = document.getElementById('winner');
 
         function nextRound() {
             if (playerScore == 5) {
-                let win = document.createTextNode(`Congratulations, you won!`);
-                winner.appendChild(win);
+                let msg = document.querySelector('div');
+                let winner = document.createElement('p');
+                winner.textContent = `Congratulations, you won!`;
+                msg.appendChild(winner);
             } else if (playerScore == 5 && computerScore == 5) {
-                let tie = document.createTextNode(` It's a tie!`);
-                winner.appendChild(tie);
+                let msg = document.querySelector('div');
+                let winner = document.createElement('p');
+                winner.textContent = `It's a tie.`;
+                msg.appendChild(winner);
             } else if (computerScore == 5) {
-                let loss = document.createTextNode(`Computer wins, better luck next time!`);
-                winner.appendChild(loss);
-            } else {
-            round+= 1;
-            }
+                let msg = document.querySelector('div');
+                let winner = document.createElement('p');
+                winner.textContent = `Computer wins, better luck next time.`;
+                msg.appendChild(winner);
+            } 
         }
 
         if (player == 'rock' && computer == 'Scissors') {
             playerScore = playerScore+= 1;
+            round = round+= 1;
         } else if (player == 'paper' && computer == 'Rock') {
             playerScore = playerScore+= 1;
+            round = round+= 1;
         } else if (player == 'scissors' && computer == 'Paper') {
             playerScore = playerScore+= 1;
+            round = round+= 1;
         } else if (player == 'rock' && computer == 'Rock') {
             playerScore+= 0;
             computerScore+= 0;
+            round = round+= 1;
         } else if (player == 'scissors' && computer == 'Scissors') {
             playerScore+= 0;
             computerScore+= 0;
+            round = round+= 1;
         } else if (player == 'paper' && computer == 'Paper') {
             playerScore+= 0;
             computerScore+= 0;
+            round = round+= 1;
         } else {
             computerScore = computerScore+= 1;
+            round = round+= 1;
         }
 
-        document.getElementById('result').textContent = `The score is ${playerScore} - ${computerScore}.`;
+        let winner;
 
-        nextRound();
+      /*  if (playerScore > computerScore) {
+            winner = `You, congrats!`;
+        } else if (computerScore > playerScore) {
+            winner = `Computer, better luck next time!`;
+        } else {
+            winner = `Nobody, it's a tie!`;
+        } */
+
+        document.getElementById('result').textContent = `Round ${round}: The score is ${playerScore} - ${computerScore}.`;
+
+        let gameEnd = () => {
+            if (playerScore === 5 && computerScore <= 5) {
+                return true;
+            } else if (playerScore <= 5 && computerScore === 5) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if (playerScore == 5 && computerScore < 5) {
+            let gameOver = document.createElement('p');
+            gameOver.textContent = `You won, congratulations!`;
+            container.appendChild(gameOver);
+            gameEnd();
+            } else if (playerScore < 5 && computerScore == 5) {
+                let gameOver = document.createElement('p');
+                gameOver.textContent = `You lost, better luck next time!`;
+                container.appendChild(gameOver);
+                gameEnd();
+            } else {
+                nextRound();
+            };
+
+        };
     
     
-    };
+
 
    
 
