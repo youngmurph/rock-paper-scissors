@@ -42,27 +42,34 @@
         }
 
         if (player == 'rock' && computer == 'Scissors') {
+            document.getElementById('round').textContent = `Rock beats scissors, you win this round!`;
             playerScore = playerScore+= 1;
             round = round+= 1;
         } else if (player == 'paper' && computer == 'Rock') {
+            document.getElementById('round').textContent = `Paper beats rock, you win this round!`;
             playerScore = playerScore+= 1;
             round = round+= 1;
         } else if (player == 'scissors' && computer == 'Paper') {
+            document.getElementById('round').textContent = `Scissors beats paper, you win this round!`
             playerScore = playerScore+= 1;
             round = round+= 1;
         } else if (player == 'rock' && computer == 'Rock') {
+            document.getElementById('round').textContent = `You both picked rock, this round is a tie.`
             playerScore+= 0;
             computerScore+= 0;
             round = round+= 1;
         } else if (player == 'scissors' && computer == 'Scissors') {
+            document.getElementById('round').textContent = `You both picked scissors, this round is a tie.`
             playerScore+= 0;
             computerScore+= 0;
             round = round+= 1;
         } else if (player == 'paper' && computer == 'Paper') {
+            document.getElementById('round').textContent = `You both picked paper, this round is a tie.`
             playerScore+= 0;
             computerScore+= 0;
             round = round+= 1;
         } else {
+            document.getElementById('round').textContent = `The Computer takes this round.`
             computerScore = computerScore+= 1;
             round = round+= 1;
         }
